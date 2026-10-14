@@ -1,0 +1,14 @@
+#include <iostream>
+using namespace std;
+int main() {
+    int n;
+    cout << "Enter n (0 to 20): ";
+    if (!(cin >> n) || n < 0 || n > 20) {
+        cerr << "Please enter an integer from 0 to 20.\n";
+        return 1;
+    }
+    unsigned long long result = 1;
+    for (int i = 2; i <= n; ++i) result *= i;
+    cout << n << "! = " << result << '\n';
+    return 0;
+}
