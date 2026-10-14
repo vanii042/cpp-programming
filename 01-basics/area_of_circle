@@ -1,0 +1,14 @@
+#include <iostream>
+#include <iomanip>
+using namespace std;
+int main() {
+    const double PI = 3.141592653589793;
+    double radius;
+    cout << "Enter radius: ";
+    if (!(cin >> radius) || radius < 0) {
+        cerr << "Radius must be non-negative.\n";
+        return 1;
+    }
+    cout << fixed << setprecision(2) << "Area = " << PI * radius * radius << '\n';
+    return 0;
+}
