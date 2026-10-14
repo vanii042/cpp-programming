@@ -1,0 +1,14 @@
+#include <iostream>
+#include <string>
+#include <cmath>
+using namespace std;
+int main() {
+    long long n;
+    cout << "Enter a non-negative integer: ";
+    if (!(cin >> n) || n < 0) return 1;
+    string s = to_string(n);
+    long long sum = 0;
+    for (char ch : s) sum += static_cast<long long>(round(pow(ch - '0', s.size())));
+    cout << (sum == n ? "Armstrong number\n" : "Not an Armstrong number\n");
+    return 0;
+}
