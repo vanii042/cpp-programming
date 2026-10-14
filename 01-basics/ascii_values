@@ -1,0 +1,10 @@
+#include <iostream>
+using namespace std;
+int main() {
+    char ch;
+    cout << "Enter a character: ";
+    if (!(cin >> ch)) return 1;
+    cout << "Character: " << ch << "\nASCII/character code: "
+         << static_cast<int>(static_cast<unsigned char>(ch)) << '\n';
+    return 0;
+}
