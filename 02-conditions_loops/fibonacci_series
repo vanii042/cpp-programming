@@ -1,0 +1,14 @@
+#include <iostream>
+using namespace std;
+int main() {
+    int n;
+    cout << "Number of terms (1-93): ";
+    if (!(cin >> n) || n < 1 || n > 93) return 1;
+    unsigned long long a = 0, b = 1;
+    for (int i = 0; i < n; ++i) {
+        cout << a << (i + 1 == n ? '\n' : ' ');
+        unsigned long long next = a + b;
+        a = b; b = next;
+    }
+    return 0;
+}
