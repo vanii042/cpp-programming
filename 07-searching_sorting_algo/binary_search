@@ -1,0 +1,16 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+int main() {
+    int n, target;
+    if (!(cin >> n) || n < 0 || n > 1000000) return 1;
+    vector<int> a(n);
+    for (int &x : a) if (!(cin >> x)) return 1;
+    if (!is_sorted(a.begin(), a.end())) { cerr << "Input must be sorted.\n"; return 1; }
+    if (!(cin >> target)) return 1;
+    auto it = lower_bound(a.begin(), a.end(), target);
+    if (it != a.end() && *it == target) cout << "Found at index " << (it - a.begin()) << '\n';
+    else cout << "Not found\n";
+    return 0;
+}
