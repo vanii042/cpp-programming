@@ -1,0 +1,24 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+void mergeSort(vector<int> &a, int left, int right) {
+    if (left >= right) return;
+    int mid = left + (right - left) / 2;
+    mergeSort(a, left, mid); mergeSort(a, mid + 1, right);
+    vector<int> tmp;
+    int i = left, j = mid + 1;
+    while (i <= mid && j <= right) tmp.push_back(a[i] <= a[j] ? a[i++] : a[j++]);
+    while (i <= mid) tmp.push_back(a[i++]);
+    while (j <= right) tmp.push_back(a[j++]);
+    for (int k = 0; k < (int)tmp.size(); ++k) a[left + k] = tmp[k];
+}
+int main() {
+    int n;
+    if (!(cin >> n) || n < 0 || n > 1000000) return 1;
+    vector<int> a(n);
+    for (int &x : a) if (!(cin >> x)) return 1;
+    if (n) mergeSort(a, 0, n - 1);
+    for (int x : a) cout << x << ' ';
+    cout << '\n';
+    return 0;
+}
