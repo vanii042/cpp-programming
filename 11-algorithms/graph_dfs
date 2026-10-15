@@ -1,0 +1,20 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+void dfs(int u, const vector<vector<int>> &g, vector<bool> &seen) {
+    seen[u] = true; cout << u << ' ';
+    for (int v : g[u]) if (!seen[v]) dfs(v, g, seen);
+}
+int main() {
+    int n, m;
+    if (!(cin >> n >> m) || n <= 0 || m < 0 || n > 100000) return 1;
+    vector<vector<int>> graph(n);
+    for (int i = 0, u, v; i < m; ++i) {
+        if (!(cin >> u >> v) || u < 0 || u >= n || v < 0 || v >= n) return 1;
+        graph[u].push_back(v); graph[v].push_back(u);
+    }
+    int start;
+    if (!(cin >> start) || start < 0 || start >= n) return 1;
+    vector<bool> seen(n, false); dfs(start, graph, seen); cout << '\n';
+    return 0;
+}
