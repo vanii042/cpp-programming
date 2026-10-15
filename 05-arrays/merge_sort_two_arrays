@@ -1,0 +1,21 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+int main() {
+    int n, m;
+    if (!(cin >> n) || n < 0 || n > 100000) return 1;
+    vector<int> a(n);
+    for (int &x : a) if (!(cin >> x)) return 1;
+    if (!(cin >> m) || m < 0 || m > 100000) return 1;
+    vector<int> b(m);
+    for (int &x : b) if (!(cin >> x)) return 1;
+    if (!is_sorted(a.begin(), a.end()) || !is_sorted(b.begin(), b.end())) {
+        cerr << "Both arrays must already be sorted.\n"; return 1;
+    }
+    vector<int> merged;
+    merge(a.begin(), a.end(), b.begin(), b.end(), back_inserter(merged));
+    for (int x : merged) cout << x << ' ';
+    cout << '\n';
+    return 0;
+}
