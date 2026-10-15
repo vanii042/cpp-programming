@@ -1,0 +1,14 @@
+#include <iostream>
+using namespace std;
+long long power(long long base, unsigned int exp) {
+    if (exp == 0) return 1;
+    long long half = power(base, exp / 2);
+    return exp % 2 ? half * half * base : half * half;
+}
+int main() {
+    long long base;
+    unsigned int exp;
+    cout << "Enter base and non-negative exponent (small values recommended): ";
+    if (!(cin >> base >> exp) || exp > 20) return 1;
+    cout << power(base, exp) << '\n';
+    return 0;
