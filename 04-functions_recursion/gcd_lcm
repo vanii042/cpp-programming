@@ -1,0 +1,13 @@
+#include <iostream>
+#include <numeric>
+using namespace std;
+int main() {
+    long long a, b;
+    cout << "Enter two integers: ";
+    if (!(cin >> a >> b)) return 1;
+    long long g = gcd(a, b);
+    cout << "GCD = " << g << '\n';
+    if (g == 0) cout << "LCM is undefined for (0, 0).\n";
+    else cout << "LCM = " << (a == 0 || b == 0 ? 0 : (a / g) * b) << '\n';
+    return 0;
+}
