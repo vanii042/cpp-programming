@@ -1,0 +1,14 @@
+#include <iostream>
+#include <sstream>
+#include <string>
+using namespace std;
+int main() {
+    string line, word;
+    cout << "Enter a sentence: ";
+    getline(cin, line);
+    istringstream input(line);
+    int count = 0;
+    while (input >> word) ++count;
+    cout << "Word count = " << count << '\n';
+    return 0;
+}
