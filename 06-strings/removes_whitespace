@@ -1,0 +1,12 @@
+#include <iostream>
+#include <string>
+#include <cctype>
+using namespace std;
+int main() {
+    string s, result;
+    cout << "Enter text: ";
+    getline(cin, s);
+    for (unsigned char c : s) if (!isspace(c)) result += static_cast<char>(c);
+    cout << result << '\n';
+    return 0;
+}
