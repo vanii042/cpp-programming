@@ -1,0 +1,21 @@
+#include <iostream>
+#include <queue>
+using namespace std;
+struct Node {
+    int value; Node *left, *right;
+    explicit Node(int v) : value(v), left(nullptr), right(nullptr) {}
+};
+void preorder(Node *n) { if (!n) return; cout << n->value << ' '; preorder(n->left); preorder(n->right); }
+void inorder(Node *n) { if (!n) return; inorder(n->left); cout << n->value << ' '; inorder(n->right); }
+void postorder(Node *n) { if (!n) return; postorder(n->left); postorder(n->right); cout << n->value << ' '; }
+void destroy(Node *n) { if (!n) return; destroy(n->left); destroy(n->right); delete n; }
+int main() {
+    Node *root = new Node(1);
+    root->left = new Node(2); root->right = new Node(3);
+    root->left->left = new Node(4); root->left->right = new Node(5);
+    cout << "Preorder: "; preorder(root);
+    cout << "\nInorder: "; inorder(root);
+    cout << "\nPostorder: "; postorder(root);
+    cout << '\n'; destroy(root);
+    return 0;
+}
