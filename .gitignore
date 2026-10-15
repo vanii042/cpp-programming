@@ -1,0 +1,14 @@
+# Compiled binaries
+*.exe
+*.out
+a.out
+
+# Generated file-handling examples
+sample.txt
+students.txt
+
+# Editor / OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
