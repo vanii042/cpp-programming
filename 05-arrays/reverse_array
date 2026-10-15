@@ -1,0 +1,14 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+int main() {
+    int n;
+    if (!(cin >> n) || n < 0 || n > 100000) return 1;
+    vector<int> a(n);
+    for (int &x : a) if (!(cin >> x)) return 1;
+    reverse(a.begin(), a.end());
+    for (int x : a) cout << x << ' ';
+    cout << '\n';
+    return 0;
+}
