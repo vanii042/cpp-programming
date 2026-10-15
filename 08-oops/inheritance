@@ -1,0 +1,20 @@
+#include <iostream>
+#include <string>
+using namespace std;
+class Person {
+protected:
+    string name;
+public:
+    explicit Person(string n) : name(move(n)) {}
+};
+class Student : public Person {
+    int roll;
+public:
+    Student(string n, int r) : Person(move(n)), roll(r) {}
+    void display() const { cout << "Name: " << name << "\nRoll: " << roll << '\n'; }
+};
+int main() {
+    Student s("Aarav", 101);
+    s.display();
+    return 0;
+}
