@@ -1,0 +1,19 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+int main() {
+    int n;
+    long long k;
+    if (!(cin >> n) || n < 0 || n > 100000) return 1;
+    vector<int> a(n);
+    for (int &x : a) if (!(cin >> x)) return 1;
+    if (!(cin >> k)) return 1;
+    if (n > 0) {
+        k = ((k % n) + n) % n;
+        rotate(a.begin(), a.end() - k, a.end());
+    }
+    for (int x : a) cout << x << ' ';
+    cout << '\n';
+    return 0;
+}
