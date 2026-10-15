@@ -1,0 +1,28 @@
+#include <iostream>
+using namespace std;
+struct Node {
+    int data;
+    Node *next;
+    explicit Node(int value) : data(value), next(nullptr) {}
+};
+void append(Node *&head, int value) {
+    Node *node = new Node(value);
+    if (!head) { head = node; return; }
+    Node *cur = head;
+    while (cur->next) cur = cur->next;
+    cur->next = node;
+}
+void display(Node *head) {
+    while (head) { cout << head->data << " -> "; head = head->next; }
+    cout << "nullptr\n";
+}
+void clear(Node *&head) {
+    while (head) { Node *next = head->next; delete head; head = next; }
+}
+int main() {
+    Node *head = nullptr;
+    append(head, 10); append(head, 20); append(head, 30);
+    display(head);
+    clear(head);
+    return 0;
+}
