@@ -1,0 +1,16 @@
+#include <iostream>
+#include <fstream>
+#include <string>
+using namespace std;
+struct Student { string name; int roll; double marks; };
+int main() {
+    Student s;
+    cout << "Enter name, roll number, marks: ";
+    if (!(cin >> ws) || !getline(cin, s.name)) return 1;
+    if (!(cin >> s.roll >> s.marks)) return 1;
+    ofstream out("students.txt", ios::app);
+    if (!out) { cerr << "Unable to open students.txt\n"; return 1; }
+    out << s.name << " | " << s.roll << " | " << s.marks << '\n';
+    cout << "Record appended to students.txt\n";
+    return 0;
+}
