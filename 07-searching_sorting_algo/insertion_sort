@@ -1,0 +1,17 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+int main() {
+    int n;
+    if (!(cin >> n) || n < 0 || n > 100000) return 1;
+    vector<int> a(n);
+    for (int &x : a) if (!(cin >> x)) return 1;
+    for (int i = 1; i < n; ++i) {
+        int key = a[i], j = i - 1;
+        while (j >= 0 && a[j] > key) { a[j + 1] = a[j]; --j; }
+        a[j + 1] = key;
+    }
+    for (int x : a) cout << x << ' ';
+    cout << '\n';
+    return 0;
+}
