@@ -1,0 +1,17 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+int main() {
+    int n;
+    if (!(cin >> n) || n < 0 || n > 1000000) return 1;
+    vector<int> a(n), tails;
+    for (int &x : a) if (!(cin >> x)) return 1;
+    for (int x : a) {
+        auto it = lower_bound(tails.begin(), tails.end(), x);
+        if (it == tails.end()) tails.push_back(x);
+        else *it = x;
+    }
+    cout << "Length of LIS = " << tails.size() << '\n';
+    return 0;
+}
