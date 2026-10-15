@@ -1,0 +1,15 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+int main() {
+    int rows, cols;
+    if (!(cin >> rows >> cols) || rows <= 0 || cols <= 0 || rows > 500 || cols > 500) return 1;
+    vector<vector<long long>> a(rows, vector<long long>(cols)), b = a;
+    for (auto &row : a) for (auto &x : row) if (!(cin >> x)) return 1;
+    for (auto &row : b) for (auto &x : row) if (!(cin >> x)) return 1;
+    for (int i = 0; i < rows; ++i) {
+        for (int j = 0; j < cols; ++j) cout << a[i][j] + b[i][j] << ' ';
+        cout << '\n';
+    }
+    return 0;
+}
