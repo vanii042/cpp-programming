@@ -1,0 +1,13 @@
+#include <iostream>
+#include <vector>
+#include <set>
+using namespace std;
+int main() {
+    int n;
+    if (!(cin >> n) || n < 2 || n > 100000) return 1;
+    set<int> values;
+    for (int i = 0, x; i < n; ++i) { if (!(cin >> x)) return 1; values.insert(x); }
+    if (values.size() < 2) cout << "No distinct second-largest value\n";
+    else { auto it = values.rbegin(); ++it; cout << "Second largest = " << *it << '\n'; }
+    return 0;
+}
