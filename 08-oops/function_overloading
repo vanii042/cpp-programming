@@ -1,0 +1,11 @@
+#include <iostream>
+using namespace std;
+int area(int side) { return side * side; }
+int area(int length, int width) { return length * width; }
+double area(double radius) { return 3.141592653589793 * radius * radius; }
+int main() {
+    cout << "Square area: " << area(4) << '\n';
+    cout << "Rectangle area: " << area(4, 6) << '\n';
+    cout << "Circle area: " << area(2.5) << '\n';
+    return 0;
+}
