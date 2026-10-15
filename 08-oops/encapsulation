@@ -1,0 +1,23 @@
+#include <iostream>
+using namespace std;
+class BankAccount {
+    double balance;
+public:
+    explicit BankAccount(double initial) : balance(initial >= 0 ? initial : 0) {}
+    void deposit(double amount) {
+        if (amount > 0) balance += amount;
+        else cout << "Deposit must be positive.\n";
+    }
+    bool withdraw(double amount) {
+        if (amount <= 0 || amount > balance) return false;
+        balance -= amount; return true;
+    }
+    double getBalance() const { return balance; }
+};
+int main() {
+    BankAccount account(1000);
+    account.deposit(500);
+    if (!account.withdraw(200)) cout << "Withdrawal failed\n";
+    cout << "Balance: " << account.getBalance() << '\n';
+    return 0;
+}
