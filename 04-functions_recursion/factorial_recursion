@@ -1,0 +1,12 @@
+#include <iostream>
+using namespace std;
+unsigned long long factorial(int n) {
+    return n <= 1 ? 1ULL : static_cast<unsigned long long>(n) * factorial(n - 1);
+}
+int main() {
+    int n;
+    cout << "Enter n (0-20): ";
+    if (!(cin >> n) || n < 0 || n > 20) return 1;
+    cout << factorial(n) << '\n';
+    return 0;
+}
