@@ -1,0 +1,23 @@
+#include <iostream>
+using namespace std;
+class CircularQueue {
+    static const int CAPACITY = 5;
+    int data[CAPACITY], frontIndex = 0, rearIndex = 0, count = 0;
+public:
+    bool enqueue(int x) {
+        if (count == CAPACITY) return false;
+        data[rearIndex] = x; rearIndex = (rearIndex + 1) % CAPACITY; ++count; return true;
+    }
+    bool dequeue(int &x) {
+        if (count == 0) return false;
+        x = data[frontIndex]; frontIndex = (frontIndex + 1) % CAPACITY; --count; return true;
+    }
+};
+int main() {
+    CircularQueue q;
+    q.enqueue(11); q.enqueue(22); q.enqueue(33);
+    int x;
+    while (q.dequeue(x)) cout << x << ' ';
+    cout << '\n';
+    return 0;
+}
