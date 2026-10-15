@@ -1,0 +1,17 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+int main() {
+    int n;
+    cout << "Array size: ";
+    if (!(cin >> n) || n <= 0 || n > 100000) return 1;
+    vector<int> a(n);
+    for (int &x : a) if (!(cin >> x)) return 1;
+    long long sum = 0;
+    for (int x : a) sum += x;
+    auto mm = minmax_element(a.begin(), a.end());
+    cout << "Sum = " << sum << "\nMinimum = " << *mm.first
+         << "\nMaximum = " << *mm.second << '\n';
+    return 0;
+}
