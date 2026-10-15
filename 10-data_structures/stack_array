@@ -1,0 +1,23 @@
+#include <iostream>
+using namespace std;
+class Stack {
+    static const int CAPACITY = 100;
+    int data[CAPACITY], topIndex = -1;
+public:
+    bool push(int x) {
+        if (topIndex + 1 == CAPACITY) return false;
+        data[++topIndex] = x; return true;
+    }
+    bool pop(int &x) {
+        if (topIndex < 0) return false;
+        x = data[topIndex--]; return true;
+    }
+};
+int main() {
+    Stack st;
+    st.push(5); st.push(10);
+    int x;
+    while (st.pop(x)) cout << x << ' ';
+    cout << '\n';
+    return 0;
+}
