@@ -1,0 +1,11 @@
+#include <iostream>
+#include <map>
+using namespace std;
+int main() {
+    int n;
+    if (!(cin >> n) || n < 0 || n > 100000) return 1;
+    map<int, int> frequency;
+    for (int i = 0, x; i < n; ++i) { if (!(cin >> x)) return 1; ++frequency[x]; }
+    for (const auto &p : frequency) cout << p.first << " occurs " << p.second << " time(s)\n";
+    return 0;
+}
